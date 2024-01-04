@@ -39,18 +39,18 @@ namespace WebApiToAzure.Controllers
            
             
             if (!string.IsNullOrEmpty(request.Author))
-                {
-                    _result = _result.Where(x => x.Author.ToUpper() == request.Author.ToUpper());
-                }
+            {
+                _result = _result.Where(x => x.Author.ToUpper().Contains(request.Author.ToUpper()));
+            }
 
             if (!string.IsNullOrEmpty(request.Title))
             {
-                _result =_result.Where(x => x.Title.ToUpper() == request.Title.ToUpper());
+                _result =_result.Where(x => x.Title.ToUpper().Contains(request.Title.ToUpper()));
             }
 
             if (!string.IsNullOrEmpty(request.Genre))
             {
-                _result= _result.Where(x => x.Genre.ToUpper() == request.Genre.ToUpper());
+                _result= _result.Where(x => x.Genre.ToUpper().Contains(request.Genre.ToUpper()));
             }
 
             if (_result.Count() == 0)
